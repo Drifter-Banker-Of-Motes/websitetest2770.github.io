@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | Work From Home System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00d9ff;
+            --primary-dark: #00a8cc;
+            --bg-dark: #0a0e27;
+            --bg-darker: #050812;
+            --bg-card: rgba(20, 28, 60, 0.4);
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --border-color: rgba(0, 217, 255, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 4rem auto;
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            color: var(--primary);
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .github-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: var(--bg-darker);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .github-link:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="Index.html" class="back-link">← Back to Portfolio</a>
+        
+        <h1>Work From Home System</h1>
+        <p class="subtitle">Part of Certificate II in Autonomous Robotics</p>
+
+        <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Tkinter GUI</span>
+            <span class="tag">Data Persistence</span>
+            <span class="tag">Autonomous Robotics</span>
+        </div>
+
+        <h2>Project Overview</h2>
+        <p>
+            A basic Python desktop application I built for a TAFE assignment. It's a simple time-tracking tool 
+            where employees can log their work hours. This was an introductory programming exercise as part of my 
+            <strong>Certificate II in Autonomous Robotics</strong> course.
+        </p>
+
+        <h2>What I Learned</h2>
+        <ul>
+            <li><strong>GUI Development:</strong> Gained proficiency in using the <code>tkinter</code> library to create intuitive, multi-window graphical user interfaces.</li>
+            <li><strong>Data Management:</strong> Implemented file-based data storage using CSV formats, ensuring data persistence across application sessions.</li>
+            <li><strong>Authentication Logic:</strong> Developed a secure login system with credential validation and limited attempt logic.</li>
+            <li><strong>Modular Programming:</strong> Structured the application into multiple specialized scripts (Login, Logging, Reporting) to improve maintainability and scalability.</li>
+            <li><strong>Input Validation:</strong> Created robust checks for user input, including daily and weekly hour limits to ensure data integrity.</li>
+        </ul>
+
+        <h2>Technical Implementation</h2>
+        <p>
+            The system features a dual-path workflow:
+        </p>
+        <ul>
+            <li><strong>Employee Path:</strong> Secure authentication followed by a daily hour logging interface.</li>
+            <li><strong>Management Path:</strong> Automated aggregation of employee data to generate comprehensive weekly reports and grand totals.</li>
+        </ul>
+
+        <a href="https://github.com/MichaelWalshe34/Work-From-Home" target="_blank" class="github-link">View on GitHub</a>
+    </div>
+</body>
+</html>
