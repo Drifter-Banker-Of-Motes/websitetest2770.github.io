@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills & Expertise | Michael Dock-Walshe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00d9ff;
+            --primary-dark: #00a8cc;
+            --bg-dark: #0a0e27;
+            --bg-darker: #050812;
+            --bg-card: rgba(20, 28, 60, 0.4);
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --border-color: rgba(0, 217, 255, 0.2);
+            --border-glow: rgba(0, 217, 255, 0.5);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 14, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, #00ffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .container {
+            max-width: 1200px;
+            margin: 8rem auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h1 {
+            font-family: 'Newsreader', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== MAIN SKILLS (GRID) ===== */
+        .skills-category-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .skills-category-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        .main-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.1);
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .skill-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .skill-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .skill-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== SECONDARY SKILLS (TAGS) ===== */
+        .secondary-skills-container {
+            background: rgba(20, 28, 60, 0.2);
+            border: 1px solid var(--border-color);
+            border-radius: 1.5rem;
+            padding: 3rem;
+        }
+
+        .tags-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: rgba(0, 217, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: rgba(0, 217, 255, 0.15);
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .main-skills-grid { grid-template-columns: 1fr; }
+            .secondary-skills-container { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Michael Dock-Walshe</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="skills.html" class="nav-link" style="color: var(--primary);">Skills</a></li>
+                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="section-header">
+            <h1>Technical Expertise</h1>
+            <p>A comprehensive overview of my core technical competencies and supporting professional skills.</p>
+        </header>
+
+        <!-- Main Skills Section -->
+        <h2 class="skills-category-title">Core Technical Competencies</h2>
+        <div class="main-skills-grid">
+            <!-- Python -->
+            <div class="skill-card">
+                <div class="skill-name">Python Programming</div>
+                <p class="skill-description">Primary language with a focus on industrial AI applications and automation scripts.</p>
+            </div>
+
+            <!-- Robotics -->
+            <div class="skill-card">
+                <div class="skill-name">Robotics & Autonomous Systems</div>
+                <p class="skill-description">Certificate II coursework covering positioning technology and robotic control systems.</p>
+            </div>
+
+            <!-- Computer Vision -->
+            <div class="skill-card">
+                <div class="skill-name">Computer Vision (OpenCV)</div>
+                <p class="skill-description">Advanced image processing and real-time video analysis for industrial monitoring.</p>
+            </div>
+
+            <!-- Networking -->
+            <div class="skill-card">
+                <div class="skill-name">Networking</div>
+                <p class="skill-description">Proficient in Cisco Packet Tracer, IP addressing, DHCP, and VLAN configuration.</p>
+            </div>
+
+            <!-- C++ -->
+            <div class="skill-card">
+                <div class="skill-name">C++ Programming</div>
+                <p class="skill-description">Low-level systems programming and performance-critical application development.</p>
+            </div>
+
+            <!-- PLC -->
+            <div class="skill-card">
+                <div class="skill-name">PLC Programming</div>
+                <p class="skill-description">Design and implementation of industrial automation controllers and logic systems.</p>
+            </div>
+
+            <!-- API -->
+            <div class="skill-card">
+                <div class="skill-name">API Integration</div>
+                <p class="skill-description">Hands-on experience with OpenAI API and other RESTful services for intelligent systems.</p>
+            </div>
+
+            <!-- Desktop App -->
+            <div class="skill-card">
+                <div class="skill-name">Desktop Application Development</div>
+                <p class="skill-description">Building robust data management systems using Tkinter and Python.</p>
+            </div>
+
+            <!-- Version Control -->
+            <div class="skill-card">
+                <div class="skill-name">Version Control (Git/GitHub)</div>
+                <p class="skill-description">Professional code management, branching strategies, and collaborative development.</p>
+            </div>
+        </div>
+
+        <!-- Secondary Skills Section -->
+        <h2 class="skills-category-title">Supporting Skills & Tools</h2>
+        <div class="secondary-skills-container">
+            <div class="tags-wrapper">
+                <span class="skill-tag">Operating Windows</span>
+                <span class="skill-tag">ICT Support/Help Desk</span>
+                <span class="skill-tag">Customer Service</span>
+                <span class="skill-tag">Time Management</span>
+                <span class="skill-tag">Teamwork</span>
+                <span class="skill-tag">Photography</span>
+                <span class="skill-tag">Competitive Gaming</span>
+                <span class="skill-tag">Written Communication</span>
+                <span class="skill-tag">Self-directed Learning</span>
+                <span class="skill-tag">Technical Troubleshooting</span>
+                <span class="skill-tag">Strategy & Planning</span>
+                <span class="skill-tag">Professional Presentation</span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Michael Dock-Walshe. | Michaelwalshe34@gmail.com.</p>
+    </footer>
+</body>
+</html>
